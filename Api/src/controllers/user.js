@@ -3,9 +3,17 @@ const User = require("../services/user");
 const register = async (req, res) => {
   const data = req.body;
 
-  const response = await User.register(data);
+  const { response, code } = await User.register(data);
 
-  res.status(401).json(response);
+  res.status(code).json(response);
 };
 
-module.exports = { register };
+const login = async (req, res) => {
+  const data = req.body;
+
+  const { response, code } = await User.login(data);
+
+  res.status(code).json(response);
+};
+
+module.exports = { register, login };
