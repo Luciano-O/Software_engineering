@@ -16,4 +16,13 @@ const login = async (req, res) => {
   res.status(code).json(response);
 };
 
-module.exports = { register, login };
+const newChat = async (req, res) => {
+  const { id } = req.params;
+  const data = req.body;
+
+  const { code, response } = await User.newChat(data, id);
+
+  res.status(code).json(response);
+};
+
+module.exports = { register, login, newChat };

@@ -49,4 +49,30 @@ const login = async (data) => {
   };
 };
 
-module.exports = { register, login };
+const newChat = async (data, id) => {
+  const { chats } = await prisma.user.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  chats.push(data);
+
+  await prisma.user.update({
+    where: {
+      id,
+    },
+    data: {
+      chats,
+    },
+  });
+
+  return {
+    code: statusCodes.OK,
+    response: {
+      message: "Success",
+    },
+  };
+};
+
+module.exports = { register, login, newChat };
