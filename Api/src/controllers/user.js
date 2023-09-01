@@ -25,4 +25,12 @@ const newChat = async (req, res) => {
   res.status(code).json(response);
 };
 
-module.exports = { register, login, newChat };
+const userChats = async (req, res) => {
+  const { id } = req.params;
+
+  const { code, response } = await User.userChats(id);
+
+  res.status(code).json(response);
+};
+
+module.exports = { register, login, newChat, userChats };

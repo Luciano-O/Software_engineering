@@ -75,4 +75,17 @@ const newChat = async (data, id) => {
   };
 };
 
-module.exports = { register, login, newChat };
+const userChats = async (id) => {
+  const { chats } = await prisma.user.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  return {
+    response: chats,
+    code: statusCodes.OK,
+  };
+};
+
+module.exports = { register, login, newChat, userChats };
