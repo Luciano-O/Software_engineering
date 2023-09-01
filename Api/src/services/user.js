@@ -44,7 +44,6 @@ const login = async (data) => {
     response: {
       email: user.email,
       id: user.id,
-      chats: user.chats,
     },
     code: statusCodes.OK,
   };
