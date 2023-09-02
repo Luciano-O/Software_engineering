@@ -1,0 +1,19 @@
+.login_input {
+  width: 80%;
+  padding: 1rem;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1;
+  font-size: 1.2rem;
+  transition: ease-in 0.2s;
+}
+
+.login_input::placeholder {
+  font-size:1.2rem;
+}
+
+.login_input:focus {
+  outline: none;
+  border-color: blue;
+}

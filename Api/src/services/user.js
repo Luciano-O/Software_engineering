@@ -8,14 +8,14 @@ const register = async (data) => {
 
   const encryptedPass = await bcrypt.hash(password, 10);
 
-  const response = await prisma.user.create({
+  const { id } = await prisma.user.create({
     data: {
       email,
       password: encryptedPass,
     },
   });
 
-  return { response, code: statusCodes.CREATED };
+  return { response: { id, email }, code: statusCodes.CREATED };
 };
 
 const login = async (data) => {

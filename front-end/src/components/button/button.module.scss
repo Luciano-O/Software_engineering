@@ -1,0 +1,13 @@
+.login_button {
+  width: 50%;
+  height: 12%;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 0;
+  background-color: #B8E0D2;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-0.25em);
+  }
+}
